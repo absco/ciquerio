@@ -6,7 +6,7 @@ export default function HeroSection() {
       id="home" 
       className="pt-24 md:pt-32 bg-cover bg-center text-white relative h-screen flex items-center"
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

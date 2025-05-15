@@ -12,11 +12,9 @@ export const blogPosts = [
     date: "May 15, 2025",
     image:
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    imageAlt: "Cybersecurity trends visualization",
-    content: `
-      <h2>5 Critical Cybersecurity Threats to Watch in 2025</h2>
-      
-      <p>As technology continues to advance at a rapid pace, so do the threats that target our digital infrastructure. In 2025, organizations of all sizes face increasingly sophisticated cyber attacks that can compromise sensitive data, disrupt operations, and damage reputation.</p>
+    imageAlt: "Cybersecurity trends visualisation",
+    content: `      
+      <p>As technology continues to advance at a rapid pace, so do the threats that target our digital infrastructure. In 2025, organisations of all sizes face increasingly sophisticated cyber attacks that can compromise sensitive data, disrupt operations, and damage reputation.</p>
       
       <p>Here are the five most critical cybersecurity threats that businesses need to be vigilant about this year:</p>
       
@@ -75,8 +73,6 @@ export const blogPosts = [
       "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     imageAlt: "AI and automation visualization",
     content: `
-      <h2>How AI Agents Are Transforming Business Operations</h2>
-      
       <p>Artificial intelligence has moved beyond simple automation to become an essential part of modern business operations. AI agents—software entities that can make decisions and take actions with minimal human intervention—are revolutionizing how companies operate across various sectors.</p>
       
       <h3>The Evolution of AI in Business</h3>
@@ -169,8 +165,6 @@ export const blogPosts = [
       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     imageAlt: "Cloud migration concept",
     content: `
-      <h2>The Comprehensive Guide to Cloud Migration</h2>
-      
       <p>Cloud migration continues to be a top priority for organizations seeking to modernize their IT infrastructure, improve scalability, and reduce operational costs. However, moving business-critical applications and data to the cloud requires careful planning and execution to avoid disruption and ensure optimal performance.</p>
       
       <p>This comprehensive guide outlines the key strategies and best practices for a successful cloud migration.</p>
@@ -289,13 +283,12 @@ export const blogPosts = [
     id: 4,
     title: "10 Proven Strategies to Reduce IT Costs",
     excerpt:
-      "Practical approaches to optimize your IT budget without compromising on quality or performance.",
+      "Practical approaches to optimise your IT budget without compromising on quality or performance.",
     date: "February 18, 2025",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    imageAlt: "IT cost optimization chart",
+    imageAlt: "IT cost optimisation chart",
     content: `
-      <h2>10 Proven Strategies to Reduce IT Costs</h2>
       
       <p>In today's challenging economic environment, organizations across all industries are looking for ways to optimize their IT spending without compromising on performance, security, or innovation. Strategic cost optimization differs from simple cost-cutting by focusing on long-term value rather than short-term savings.</p>
       
@@ -468,8 +461,6 @@ export const blogPosts = [
       "https://images.unsplash.com/photo-1616469829941-c7200edec809?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     imageAlt: "Software integration diagram",
     content: `
-      <h2>Best Practices for Custom Software Integration</h2>
-      
       <p>In today's digital business environment, no software solution exists in isolation. The true value of applications is often realized through their seamless interaction with other systems. Whether you're implementing new custom software or enhancing existing systems, effective integration strategies are essential for success.</p>
       
       <p>This guide outlines best practices for integrating custom software with your existing technology ecosystem.</p>
@@ -658,8 +649,6 @@ export const blogPosts = [
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     imageAlt: "System troubleshooting visualization",
     content: `
-      <h2>Identifying and Resolving Common System Bottlenecks</h2>
-      
       <p>Performance issues can plague even the most well-designed IT systems. As applications grow more complex and user expectations increase, identifying and resolving bottlenecks becomes an essential skill for IT professionals. This guide explores systematic approaches to diagnosing and addressing common performance problems across your technology stack.</p>
       
       <h3>Understanding System Bottlenecks</h3>
