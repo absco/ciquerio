@@ -10,6 +10,7 @@ interface Node {
   speedX: number;
   speedY: number;
   originalRadius?: number;
+  connections: number[]; // IDs of connected nodes
 }
 
 interface Line {
@@ -27,29 +28,28 @@ export default function HeroSection() {
   // Initialize the network on mount
   useEffect(() => {
     // Create nodes
-    const nodeCount = 30;
+    const nodeCount = 20;
     const newNodes: Node[] = [];
     
     for (let i = 0; i < nodeCount; i++) {
-      const radius = Math.random() * 3 + 1; // random size between 1 and 4
+      const radius = Math.random() * 2.5 + 1.5; // random size between 1.5 and 4
       newNodes.push({
         id: i,
         x: Math.random() * 100, // percentage
         y: Math.random() * 100, // percentage
         radius: radius,
         originalRadius: radius,
-        speedX: (Math.random() - 0.5) * 0.05, // random speed
-        speedY: (Math.random() - 0.5) * 0.05, // random speed
+        speedX: (Math.random() - 0.5) * 0.04, // slightly slower random speed
+        speedY: (Math.random() - 0.5) * 0.04, // slightly slower random speed
+        connections: [] // Will be filled with connected node IDs
       });
     }
-    
-    setNodes(newNodes);
     
     // Create connections between nodes
     const newLines: Line[] = [];
     for (let i = 0; i < nodeCount; i++) {
-      // Connect each node to 2-5 other nodes
-      const connectionCount = Math.floor(Math.random() * 4) + 2;
+      // Connect each node to 2-3 other nodes
+      const connectionCount = Math.floor(Math.random() * 2) + 2;
       
       for (let j = 0; j < connectionCount; j++) {
         // Connect to a random other node
@@ -63,12 +63,17 @@ export default function HeroSection() {
           newLines.push({
             from: i,
             to: targetNode,
-            opacity: Math.random() * 0.5 + 0.1 // Random opacity between 0.1 and 0.6
+            opacity: Math.random() * 0.5 + 0.2 // Random opacity between 0.2 and 0.7
           });
+          
+          // Add connection to both nodes
+          newNodes[i].connections.push(targetNode);
+          newNodes[targetNode].connections.push(i);
         }
       }
     }
     
+    setNodes(newNodes);
     setLines(newLines);
 
     // Start animation
@@ -85,19 +90,20 @@ export default function HeroSection() {
   // Animation function
   const animate = useCallback(() => {
     setNodes(prevNodes => {
-      return prevNodes.map(node => {
+      // First update node positions
+      const updatedNodes = prevNodes.map(node => {
         // Update position based on speed
         let newX = node.x + node.speedX;
         let newY = node.y + node.speedY;
         
-        // Bounce off edges
+        // Bounce off edges with a slight dampening effect
         if (newX <= 0 || newX >= 100) {
-          node.speedX *= -1;
+          node.speedX *= -0.95; // Slight dampening on bounce
           newX = Math.max(0, Math.min(100, newX));
         }
         
         if (newY <= 0 || newY >= 100) {
-          node.speedY *= -1;
+          node.speedY *= -0.95; // Slight dampening on bounce
           newY = Math.max(0, Math.min(100, newY));
         }
         
@@ -107,6 +113,8 @@ export default function HeroSection() {
           y: newY
         };
       });
+      
+      return updatedNodes;
     });
     
     // Request next frame
@@ -138,57 +146,57 @@ export default function HeroSection() {
     >
       {/* Animated network background */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 pointer-events-none"
       >
         <svg 
           ref={svgRef}
           className="w-full h-full absolute top-0 left-0 opacity-70"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Draw lines between connected nodes */}
-          {lines.map((line, index) => {
-            const fromNode = nodes[line.from];
-            const toNode = nodes[line.to];
-            
-            if (!fromNode || !toNode) return null;
-            
-            // Calculate distance to adjust opacity
-            const distance = getDistance(fromNode, toNode);
-            const maxDistance = 30; // Maximum distance for a connection to be visible
-            const opacityFactor = Math.max(0, 1 - (distance / maxDistance));
-            let finalOpacity = line.opacity * opacityFactor;
-            
-            // Only draw lines if opacity is visible
-            if (finalOpacity < 0.05) return null;
-            
-            return (
-              <line 
-                key={`line-${index}`}
-                x1={`${fromNode.x}%`}
-                y1={`${fromNode.y}%`}
-                x2={`${toNode.x}%`}
-                y2={`${toNode.y}%`}
-                stroke={`rgba(64, 144, 255, ${finalOpacity})`}
-                strokeWidth={Math.max(0.5, fromNode.radius * 0.3)}
-                className="transition-all duration-300"
-              />
-            );
-          })}
+          {/* Draw lines first so they appear behind the nodes */}
+          <g className="lines">
+            {lines.map((line, index) => {
+              const fromNode = nodes[line.from];
+              const toNode = nodes[line.to];
+              
+              if (!fromNode || !toNode) return null;
+              
+              // Calculate distance to adjust opacity
+              const distance = getDistance(fromNode, toNode);
+              const maxDistance = 30; // Maximum distance for a connection to be visible
+              const opacityFactor = Math.max(0, 1 - (distance / maxDistance));
+              let finalOpacity = line.opacity * opacityFactor;
+              
+              // Only draw lines if opacity is visible
+              if (finalOpacity < 0.05) return null;
+              
+              return (
+                <line 
+                  key={`line-${index}`}
+                  x1={`${fromNode.x}%`}
+                  y1={`${fromNode.y}%`}
+                  x2={`${toNode.x}%`}
+                  y2={`${toNode.y}%`}
+                  stroke={`rgba(64, 144, 255, ${finalOpacity})`}
+                  strokeWidth={Math.max(0.5, Math.min(fromNode.radius, toNode.radius) * 0.35)}
+                />
+              );
+            })}
+          </g>
           
-          {/* Draw nodes */}
-          {nodes.map(node => {
-            return (
+          {/* Draw nodes on top of the lines */}
+          <g className="nodes">
+            {nodes.map(node => (
               <circle
                 key={`node-${node.id}`}
                 cx={`${node.x}%`}
                 cy={`${node.y}%`}
                 r={node.radius}
-                fill="rgba(118, 169, 250, 0.8)"
+                fill="rgba(118, 169, 250, 0.85)"
                 filter="url(#glow)"
-                className="transition-all duration-300"
               />
-            );
-          })}
+            ))}
+          </g>
           
           {/* Define filters */}
           <defs>
