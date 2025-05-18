@@ -70,7 +70,7 @@ export default function Footer() {
                   href="#services"
                   className="text-neutral-400 hover:text-white transition-colors"
                 >
-                  IT Cost Optimisation
+                  IT Cost Optimization
                 </a>
               </li>
               <li>

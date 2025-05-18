@@ -5,7 +5,7 @@ const services = [
     icon: <Cog className="w-8 h-8" />,
     title: "System Improvements & Troubleshooting",
     description:
-      "Optimize your existing IT infrastructure with our expert system analysis and improvement services. We identify and resolve bottlenecks to enhance performance.",
+      "Optimise your existing IT infrastructure with our expert system analysis and improvement services. We identify and resolve bottlenecks to enhance performance.",
   },
   {
     icon: <Bot className="w-8 h-8" />,
@@ -17,7 +17,7 @@ const services = [
     icon: <Cloud className="w-8 h-8" />,
     title: "Cloud Migration",
     description:
-      "Seamlessly transition your business to the cloud with our expert migration services. We ensure minimal disruption while maximizing the benefits of cloud computing.",
+      "Seamlessly transition your business to the cloud with our expert migration services. We ensure minimal disruption while maximising the benefits of cloud computing.",
   },
   {
     icon: <Shield className="w-8 h-8" />,
@@ -27,9 +27,9 @@ const services = [
   },
   {
     icon: <TrendingUp className="w-8 h-8" />,
-    title: "IT Cost Optimization",
+    title: "IT Cost Optimisation",
     description:
-      "Reduce unnecessary IT expenditure while improving service quality. Our experts analyze your current spending and implement efficient cost-saving measures.",
+      "Reduce unnecessary IT expenditure while improving service quality. Our experts analyse your current spending and implement efficient cost-saving measures.",
   },
   {
     icon: <Code className="w-8 h-8" />,

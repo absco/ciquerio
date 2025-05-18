@@ -47,7 +47,7 @@ function CookieConsent() {
   }
 
   return (
-    <div className="fixed bottom-4 left-4 z-50 max-w-md bg-white shadow-lg rounded-lg border border-gray-200 p-4">
+    <div className="fixed bottom-4 right-4 z-50 max-w-md bg-white shadow-lg rounded-lg border border-gray-200 p-4">
       <div className="mb-4">
         <h4 className="text-lg font-medium mb-2">Cookie Consent</h4>
         <p className="text-sm text-gray-600">

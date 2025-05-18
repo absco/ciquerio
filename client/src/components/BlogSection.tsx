@@ -12,8 +12,10 @@ export const blogPosts = [
     date: "May 15, 2025",
     image:
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    imageAlt: "Cybersecurity trends visualisation",
-    content: `      
+    imageAlt: "Cybersecurity trends visualization",
+    content: `
+   
+      
       <p>As technology continues to advance at a rapid pace, so do the threats that target our digital infrastructure. In 2025, organisations of all sizes face increasingly sophisticated cyber attacks that can compromise sensitive data, disrupt operations, and damage reputation.</p>
       
       <p>Here are the five most critical cybersecurity threats that businesses need to be vigilant about this year:</p>
@@ -32,7 +34,7 @@ export const blogPosts = [
       
       <h3>3. API Vulnerabilities</h3>
       
-      <p>As organizations continue to adopt microservices architectures and increase their reliance on third-party integrations, API security has become a critical concern. Insecure APIs represent a significant attack vector that can provide direct access to sensitive data and core functionality.</p>
+      <p>As organisations continue to adopt microservices architectures and increase their reliance on third-party integrations, API security has become a critical concern. Insecure APIs represent a significant attack vector that can provide direct access to sensitive data and core functionality.</p>
       
       <p>Implementing robust API security measures, including proper authentication, rate limiting, payload validation, and continuous monitoring, is essential for protecting these crucial connection points.</p>
       
@@ -44,7 +46,7 @@ export const blogPosts = [
       
       <h3>5. Quantum Computing Threats</h3>
       
-      <p>While still in early stages, quantum computing poses a significant future threat to current encryption standards. Forward-thinking organizations are already planning for quantum-resistant cryptography to protect sensitive data with long-term value.</p>
+      <p>While still in early stages, quantum computing poses a significant future threat to current encryption standards. Forward-thinking organisations are already planning for quantum-resistant cryptography to protect sensitive data with long-term value.</p>
       
       <p>Businesses should begin cryptographic agility initiatives now, enabling their systems to quickly adopt new encryption standards as they become necessary.</p>
       
@@ -60,7 +62,7 @@ export const blogPosts = [
         <li>Partnering with security experts to stay ahead of emerging threats</li>
       </ul>
       
-      <p>At Ciquerio, we help organizations develop comprehensive cybersecurity strategies that address these evolving threats while enabling business innovation and growth. Contact us today to learn how we can strengthen your security posture against the most critical threats of 2025.</p>
+      <p>At Ciquerio, we help organisations develop comprehensive cybersecurity strategies that address these evolving threats while enabling business innovation and growth. Contact us today to learn how we can strengthen your security posture against the most critical threats of 2025.</p>
     `,
   },
   {
@@ -73,6 +75,8 @@ export const blogPosts = [
       "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     imageAlt: "AI and automation visualization",
     content: `
+
+      
       <p>Artificial intelligence has moved beyond simple automation to become an essential part of modern business operations. AI agents—software entities that can make decisions and take actions with minimal human intervention—are revolutionizing how companies operate across various sectors.</p>
       
       <h3>The Evolution of AI in Business</h3>
@@ -150,7 +154,7 @@ export const blogPosts = [
         <li>Development of AI systems that can explain their reasoning and decisions</li>
       </ul>
       
-      <p>At Ciquerio, we help businesses develop and implement AI strategies that drive real business value. Our expertise in custom AI agent development enables organizations to automate complex processes while maintaining the human judgment and oversight that remain essential for business success.</p>
+      <p>At Ciquerio, we help businesses develop and implement AI strategies that drive real business value. Our expertise in custom AI agent development enables organisations to automate complex processes while maintaining the human judgment and oversight that remain essential for business success.</p>
       
       <p>Contact us to learn how AI agents can transform your business operations and create new opportunities for growth and innovation.</p>
     `,
@@ -165,7 +169,9 @@ export const blogPosts = [
       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     imageAlt: "Cloud migration concept",
     content: `
-      <p>Cloud migration continues to be a top priority for organizations seeking to modernize their IT infrastructure, improve scalability, and reduce operational costs. However, moving business-critical applications and data to the cloud requires careful planning and execution to avoid disruption and ensure optimal performance.</p>
+  
+      
+      <p>Cloud migration continues to be a top priority for organisations seeking to modernize their IT infrastructure, improve scalability, and reduce operational costs. However, moving business-critical applications and data to the cloud requires careful planning and execution to avoid disruption and ensure optimal performance.</p>
       
       <p>This comprehensive guide outlines the key strategies and best practices for a successful cloud migration.</p>
       
@@ -276,27 +282,28 @@ export const blogPosts = [
         <li>Business agility improvements</li>
       </ul>
       
-      <p>At Ciquerio, we've guided numerous organizations through successful cloud migrations. Our approach combines technical expertise with business-focused planning to ensure migrations deliver maximum value with minimal disruption. Contact us to discuss how we can support your cloud migration journey.</p>
+      <p>At Ciquerio, we've guided numerous organisations through successful cloud migrations. Our approach combines technical expertise with business-focused planning to ensure migrations deliver maximum value with minimal disruption. Contact us to discuss how we can support your cloud migration journey.</p>
     `,
   },
   {
     id: 4,
     title: "10 Proven Strategies to Reduce IT Costs",
     excerpt:
-      "Practical approaches to optimise your IT budget without compromising on quality or performance.",
+      "Practical approaches to optimize your IT budget without compromising on quality or performance.",
     date: "February 18, 2025",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    imageAlt: "IT cost optimisation chart",
+    imageAlt: "IT cost optimization chart",
     content: `
+   
       
-      <p>In today's challenging economic environment, organizations across all industries are looking for ways to optimize their IT spending without compromising on performance, security, or innovation. Strategic cost optimization differs from simple cost-cutting by focusing on long-term value rather than short-term savings.</p>
+      <p>In today's challenging economic environment, organisations across all industries are looking for ways to optimize their IT spending without compromising on performance, security, or innovation. Strategic cost optimization differs from simple cost-cutting by focusing on long-term value rather than short-term savings.</p>
       
-      <p>Here are ten proven strategies that can help your organization reduce IT costs while maintaining or even improving capabilities:</p>
+      <p>Here are ten proven strategies that can help your organisation reduce IT costs while maintaining or even improving capabilities:</p>
       
       <h3>1. Embrace Cloud Optimization</h3>
       
-      <p>Many organizations waste significant resources on underutilized cloud instances or inappropriate service tiers. Implementing these practices can yield immediate savings:</p>
+      <p>Many organisations waste significant resources on underutilized cloud instances or inappropriate service tiers. Implementing these practices can yield immediate savings:</p>
       
       <ul>
         <li>Right-size resources based on actual utilization data</li>
@@ -446,9 +453,9 @@ export const blogPosts = [
         <li>Create a continuous optimization culture rather than one-time initiatives</li>
       </ol>
       
-      <p>At Ciquerio, we help organizations develop and implement comprehensive IT cost optimization strategies that reduce expenses while enhancing capabilities. Our approach focuses on sustainable improvements that align with business objectives rather than short-term cuts that may create future problems.</p>
+      <p>At Ciquerio, we help organisations develop and implement comprehensive IT cost optimization strategies that reduce expenses while enhancing capabilities. Our approach focuses on sustainable improvements that align with business objectives rather than short-term cuts that may create future problems.</p>
       
-      <p>Contact us to learn how we can help your organization optimize IT costs while maintaining the technology foundation needed for business success.</p>
+      <p>Contact us to learn how we can help your organisation optimize IT costs while maintaining the technology foundation needed for business success.</p>
     `,
   },
   {
@@ -461,6 +468,8 @@ export const blogPosts = [
       "https://images.unsplash.com/photo-1616469829941-c7200edec809?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     imageAlt: "Software integration diagram",
     content: `
+  
+      
       <p>In today's digital business environment, no software solution exists in isolation. The true value of applications is often realized through their seamless interaction with other systems. Whether you're implementing new custom software or enhancing existing systems, effective integration strategies are essential for success.</p>
       
       <p>This guide outlines best practices for integrating custom software with your existing technology ecosystem.</p>
@@ -616,7 +625,7 @@ export const blogPosts = [
       <ul>
         <li>Implementing an integration layer or service bus</li>
         <li>Documenting integration points in a central repository</li>
-        <li>Standardizing integration patterns across the organization</li>
+        <li>Standardizing integration patterns across the organisation</li>
         <li>Creating reusable integration components</li>
       </ul>
       
@@ -634,7 +643,7 @@ export const blogPosts = [
       
       <h3>Conclusion</h3>
       
-      <p>Successful software integration requires a combination of strategic planning, technical expertise, and disciplined implementation. By following these best practices, organizations can create integrated systems that provide seamless functionality while remaining maintainable and adaptive to changing requirements.</p>
+      <p>Successful software integration requires a combination of strategic planning, technical expertise, and disciplined implementation. By following these best practices, organisations can create integrated systems that provide seamless functionality while remaining maintainable and adaptive to changing requirements.</p>
       
       <p>At Ciquerio, we specialize in designing and implementing custom software integration solutions that connect your critical systems while maintaining security, performance, and reliability. Contact us to discuss how we can help with your integration challenges.</p>
     `,
@@ -649,6 +658,8 @@ export const blogPosts = [
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
     imageAlt: "System troubleshooting visualization",
     content: `
+  
+      
       <p>Performance issues can plague even the most well-designed IT systems. As applications grow more complex and user expectations increase, identifying and resolving bottlenecks becomes an essential skill for IT professionals. This guide explores systematic approaches to diagnosing and addressing common performance problems across your technology stack.</p>
       
       <h3>Understanding System Bottlenecks</h3>
@@ -827,7 +838,7 @@ export const blogPosts = [
       
       <h3>Conclusion</h3>
       
-      <p>Resolving system bottlenecks requires a combination of systematic troubleshooting, technical expertise across multiple domains, and a willingness to look beyond initial assumptions. By implementing proper monitoring, establishing baseline performance metrics, and following a structured approach to problem identification and resolution, organizations can maintain optimal system performance even as demands increase.</p>
+      <p>Resolving system bottlenecks requires a combination of systematic troubleshooting, technical expertise across multiple domains, and a willingness to look beyond initial assumptions. By implementing proper monitoring, establishing baseline performance metrics, and following a structured approach to problem identification and resolution, organisations can maintain optimal system performance even as demands increase.</p>
       
       <p>At Ciquerio, we specialize in identifying and resolving performance bottlenecks across complex IT ecosystems. Our consultants bring expertise in system architecture, database optimization, network configuration, and application performance tuning to solve even the most challenging performance issues. Contact us to learn how we can help optimize your critical systems.</p>
     `,

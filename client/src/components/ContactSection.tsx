@@ -36,6 +36,7 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
+
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -44,7 +45,7 @@ export default function ContactSection() {
       email: "",
       company: "",
       message: "",
-      privacyPolicy: true,
+      privacyPolicy: false,
     },
   });
 
@@ -103,46 +104,11 @@ export default function ContactSection() {
                   <div className="ml-4">
                     <h4 className="text-lg font-medium mb-1">Business Hours</h4>
                     <p className="text-neutral-500">
-                      Monday - Friday: 9:00 AM - 5:00 PM
+                      Monday - Friday: 7:00 AM - 9:00 PM
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1 bg-primary/10 p-3 rounded-full">
-                    <ShieldCheck className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-medium mb-1">Data Security</h4>
-                    <p className="text-neutral-500">
-                      Your information is encrypted and securely stored.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-10 pt-8 border-t border-gray-200">
-                <h4 className="text-lg font-medium mb-4">Follow Us</h4>
-                <div className="flex space-x-4">
-                  <a
-                    href="#"
-                    className="bg-primary/10 hover:bg-primary/20 text-primary p-3 rounded-full transition-colors"
-                  >
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-primary/10 hover:bg-primary/20 text-primary p-3 rounded-full transition-colors"
-                  >
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-primary/10 hover:bg-primary/20 text-primary p-3 rounded-full transition-colors"
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                </div>
               </div>
             </div>
           </div>
