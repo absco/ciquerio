@@ -70,7 +70,7 @@ export default function Footer() {
                   href="#services"
                   className="text-neutral-400 hover:text-white transition-colors"
                 >
-                  IT Cost Optimization
+                  IT Cost Optimisation
                 </a>
               </li>
               <li>
@@ -139,7 +139,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <i className="fas fa-clock text-neutral-400 mt-1 mr-3"></i>
-                <span className="text-neutral-400">Mon-Fri: 9:00 AM - 5:00 PM</span>
+                <span className="text-neutral-400">Mon-Fri: 7:00 AM - 9:00 PM</span>
               </li>
             </ul>
           </div>

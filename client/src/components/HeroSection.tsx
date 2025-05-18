@@ -10,34 +10,24 @@ interface Node {
   speedX: number;
   speedY: number;
   originalRadius?: number;
-  highlighted?: boolean;
 }
 
 interface Line {
   from: number;
   to: number;
   opacity: number;
-  highlighted?: boolean;
-}
-
-interface MousePosition {
-  x: number | null;
-  y: number | null;
 }
 
 export default function HeroSection() {
   const [nodes, setNodes] = useState<Node[]>([]);
   const [lines, setLines] = useState<Line[]>([]);
-  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: null, y: null });
   const animationFrameRef = useRef<number | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const highlightedNodesRef = useRef<Set<number>>(new Set());
 
   // Initialize the network on mount
   useEffect(() => {
     // Create nodes
-    const nodeCount = 25;
+    const nodeCount = 30;
     const newNodes: Node[] = [];
     
     for (let i = 0; i < nodeCount; i++) {
@@ -92,40 +82,10 @@ export default function HeroSection() {
     };
   }, []);
 
-  // Handle mouse movement
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      if (!containerRef.current) return;
-      
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      
-      setMousePosition({ x, y });
-    };
-    
-    const handleMouseLeave = () => {
-      setMousePosition({ x: null, y: null });
-    };
-    
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      container.addEventListener('mouseleave', handleMouseLeave);
-    }
-    
-    return () => {
-      if (container) {
-        container.removeEventListener('mousemove', handleMouseMove);
-        container.removeEventListener('mouseleave', handleMouseLeave);
-      }
-    };
-  }, []);
-
   // Animation function
   const animate = useCallback(() => {
     setNodes(prevNodes => {
-      const newNodes = prevNodes.map(node => {
+      return prevNodes.map(node => {
         // Update position based on speed
         let newX = node.x + node.speedX;
         let newY = node.y + node.speedY;
@@ -140,62 +100,18 @@ export default function HeroSection() {
           node.speedY *= -1;
           newY = Math.max(0, Math.min(100, newY));
         }
-
-        // Update highlighting based on mouse position
-        let radius = node.originalRadius || node.radius;
-        let highlighted = false;
-
-        if (mousePosition.x !== null && mousePosition.y !== null) {
-          const dx = newX - mousePosition.x;
-          const dy = newY - mousePosition.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          const interactionRadius = 15;
-          
-          highlighted = distance < interactionRadius;
-          if (highlighted) {
-            const growFactor = 1 - (distance / interactionRadius);
-            radius = (node.originalRadius || node.radius) * (1 + growFactor);
-            highlightedNodesRef.current.add(node.id);
-          } else {
-            highlightedNodesRef.current.delete(node.id);
-          }
-        } else {
-          highlightedNodesRef.current.clear();
-        }
         
         return {
           ...node,
           x: newX,
-          y: newY,
-          radius: radius,
-          highlighted: highlighted
+          y: newY
         };
       });
-
-      // Update line highlighting
-      setLines(prevLines => {
-        if (highlightedNodesRef.current.size === 0) {
-          return prevLines.map(line => ({...line, highlighted: false}));
-        }
-        
-        return prevLines.map(line => {
-          const isHighlighted = 
-            highlightedNodesRef.current.has(line.from) || 
-            highlightedNodesRef.current.has(line.to);
-          
-          return {
-            ...line,
-            highlighted: isHighlighted
-          };
-        });
-      });
-
-      return newNodes;
     });
     
     // Request next frame
     animationFrameRef.current = requestAnimationFrame(animate);
-  }, [mousePosition]);
+  }, []);
 
   // Start animation
   const startAnimation = () => {
@@ -222,8 +138,7 @@ export default function HeroSection() {
     >
       {/* Animated network background */}
       <div 
-        ref={containerRef}
-        className="absolute inset-0 z-0 cursor-none"
+        className="absolute inset-0 z-0"
       >
         <svg 
           ref={svgRef}
@@ -243,22 +158,8 @@ export default function HeroSection() {
             const opacityFactor = Math.max(0, 1 - (distance / maxDistance));
             let finalOpacity = line.opacity * opacityFactor;
             
-            // Enhance opacity for highlighted lines
-            if (line.highlighted) {
-              finalOpacity = Math.min(1, finalOpacity * 3);
-            }
-            
             // Only draw lines if opacity is visible
             if (finalOpacity < 0.05) return null;
-            
-            // Determine line color based on highlighting
-            const strokeColor = line.highlighted
-              ? `rgba(64, 222, 255, ${finalOpacity})`
-              : `rgba(64, 144, 255, ${finalOpacity})`;
-            
-            const strokeWidth = line.highlighted
-              ? Math.max(1, fromNode.radius * 0.5)
-              : Math.max(0.5, fromNode.radius * 0.3);
             
             return (
               <line 
@@ -267,8 +168,8 @@ export default function HeroSection() {
                 y1={`${fromNode.y}%`}
                 x2={`${toNode.x}%`}
                 y2={`${toNode.y}%`}
-                stroke={strokeColor}
-                strokeWidth={strokeWidth}
+                stroke={`rgba(64, 144, 255, ${finalOpacity})`}
+                strokeWidth={Math.max(0.5, fromNode.radius * 0.3)}
                 className="transition-all duration-300"
               />
             );
@@ -276,50 +177,23 @@ export default function HeroSection() {
           
           {/* Draw nodes */}
           {nodes.map(node => {
-            // Determine node color based on highlighting
-            const fillColor = node.highlighted
-              ? "rgba(100, 200, 255, 0.9)"
-              : "rgba(118, 169, 250, 0.8)";
-            
             return (
               <circle
                 key={`node-${node.id}`}
                 cx={`${node.x}%`}
                 cy={`${node.y}%`}
                 r={node.radius}
-                fill={fillColor}
-                filter={node.highlighted ? "url(#glow-highlight)" : "url(#glow)"}
+                fill="rgba(118, 169, 250, 0.8)"
+                filter="url(#glow)"
                 className="transition-all duration-300"
               />
             );
           })}
           
-          {/* Draw cursor effect when mouse is in the container */}
-          {mousePosition.x !== null && mousePosition.y !== null && (
-            <circle
-              cx={`${mousePosition.x}%`}
-              cy={`${mousePosition.y}%`}
-              r="2"
-              fill="rgba(255, 255, 255, 0.5)"
-              filter="url(#cursor-glow)"
-              className="animate-pulse"
-            />
-          )}
-          
           {/* Define filters */}
           <defs>
             <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="2.5" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-            
-            <filter id="glow-highlight" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="3.5" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-            
-            <filter id="cursor-glow" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur stdDeviation="5" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
