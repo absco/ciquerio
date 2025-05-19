@@ -24,9 +24,10 @@ const contactFormSchema = z.object({
   lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Please enter a valid email address"),
   company: z.string().optional(),
+  service: z.string().default("General Inquiry"), 
   message: z.string().min(10, "Message must be at least 10 characters"),
-  privacyPolicy: z.literal(true, {
-    errorMap: () => ({ message: "You must accept the privacy policy" }),
+  privacyPolicy: z.boolean().refine(val => val === true, {
+    message: "You must accept the privacy policy",
   }),
 });
 
@@ -44,6 +45,7 @@ export default function ContactSection() {
       lastName: "",
       email: "",
       company: "",
+      service: "General Inquiry",
       message: "",
       privacyPolicy: false,
     },
