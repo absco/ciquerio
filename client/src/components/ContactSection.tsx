@@ -54,18 +54,27 @@ export default function ContactSection() {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     try {
+      // Add a small delay to simulate network request
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // Send the form data to the server
       await apiRequest("POST", "/api/contact", data);
+      
+      // Show success message and reset form
       setIsSuccess(true);
       form.reset();
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you shortly.",
+        description: "Thank you for contacting Ciquerio. We'll get back to you shortly.",
         variant: "default",
       });
+      
+      console.log("Contact form submitted:", data);
     } catch (error) {
+      console.error("Error submitting contact form:", error);
       toast({
         title: "Error sending message",
-        description: "Please try again later.",
+        description: "Please try again later or email us directly at info@ciquerio.com.",
         variant: "destructive",
       });
     } finally {
