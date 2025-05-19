@@ -289,24 +289,24 @@ export const blogPosts = [
     id: 4,
     title: "10 Proven Strategies to Reduce IT Costs",
     excerpt:
-      "Practical approaches to optimize your IT budget without compromising on quality or performance.",
+      "Practical approaches to optimise your IT budget without compromising on quality or performance.",
     date: "February 18, 2025",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    imageAlt: "IT cost optimization chart",
+    imageAlt: "IT cost optimisation chart",
     content: `
       <h2>10 Proven Strategies to Reduce IT Costs</h2>
       
-      <p>In today's challenging economic environment, organizations across all industries are looking for ways to optimize their IT spending without compromising on performance, security, or innovation. Strategic cost optimization differs from simple cost-cutting by focusing on long-term value rather than short-term savings.</p>
+      <p>In today's challenging economic environment, organisations across all industries are looking for ways to optimise their IT spending without compromising on performance, security, or innovation. Strategic cost optimisation differs from simple cost-cutting by focusing on long-term value rather than short-term savings.</p>
       
-      <p>Here are ten proven strategies that can help your organization reduce IT costs while maintaining or even improving capabilities:</p>
+      <p>Here are ten proven strategies that can help your organisation reduce IT costs while maintaining or even improving capabilities:</p>
       
-      <h3>1. Embrace Cloud Optimization</h3>
+      <h3>1. Embrace Cloud Optimisation</h3>
       
-      <p>Many organizations waste significant resources on underutilized cloud instances or inappropriate service tiers. Implementing these practices can yield immediate savings:</p>
+      <p>Many organisations waste significant resources on underutilised cloud instances or inappropriate service tiers. Implementing these practices can yield immediate savings:</p>
       
       <ul>
-        <li>Right-size resources based on actual utilization data</li>
+        <li>Right-size resources based on actual utilisation data</li>
         <li>Implement auto-scaling to match demand fluctuations</li>
         <li>Use reserved instances for predictable workloads</li>
         <li>Delete orphaned resources and unused services</li>

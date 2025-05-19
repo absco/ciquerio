@@ -20,7 +20,7 @@ const reasons = [
   {
     title: "Ongoing Support",
     description:
-      "We're committed to your long-term success with responsive support and continuous optimization.",
+      "We're committed to your long-term success with responsive support and continuous optimisation.",
   },
 ];
 

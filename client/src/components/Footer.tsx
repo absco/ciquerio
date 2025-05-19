@@ -146,7 +146,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-neutral-800 text-center text-neutral-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Ciquerio. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ciquerio Consulting Limited. All rights reserved.</p>
         </div>
       </div>
     </footer>

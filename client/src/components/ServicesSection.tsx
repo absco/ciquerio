@@ -9,21 +9,21 @@ const services = [
   },
   {
     icon: <Bot className="w-8 h-8" />,
-    title: "AI & Automation Solutions",
+    title: "AI & Automation",
     description:
       "Leverage the power of artificial intelligence and custom AI agents to automate processes, reduce manual tasks, and gain valuable insights from your data.",
-  },
-  {
-    icon: <Cloud className="w-8 h-8" />,
-    title: "Cloud Migration",
-    description:
-      "Seamlessly transition your business to the cloud with our expert migration services. We ensure minimal disruption while maximising the benefits of cloud computing.",
   },
   {
     icon: <Shield className="w-8 h-8" />,
     title: "Cyber Security Threat Mitigation",
     description:
       "Protect your business from evolving cyber threats with our comprehensive security assessment and implementation services. We keep your data safe.",
+  },
+  {
+    icon: <Cloud className="w-8 h-8" />,
+    title: "Cloud Migration",
+    description:
+      "Seamlessly transition your business to the cloud with our expert migration services. We ensure minimal disruption while maximising the benefits of cloud computing.",
   },
   {
     icon: <TrendingUp className="w-8 h-8" />,
