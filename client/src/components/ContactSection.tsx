@@ -54,11 +54,36 @@ export default function ContactSection() {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     try {
-      // Add a small delay to simulate network request
-      await new Promise(resolve => setTimeout(resolve, 800));
+      // Format the current date
+      const currentDate = new Date().toLocaleString();
       
-      // Send the form data to the server
-      await apiRequest("POST", "/api/contact", data);
+      // FormSubmit endpoint - the first submission will go to your email for activation
+      const formSubmitEndpoint = "https://formsubmit.co/info@ciquerio.com";
+      
+      // Create form data for submission
+      const formData = new FormData();
+      formData.append("name", `${data.firstName} ${data.lastName}`);
+      formData.append("email", data.email);
+      formData.append("company", data.company || "Not provided");
+      formData.append("service", data.service);
+      formData.append("message", data.message);
+      formData.append("_subject", "Ciquerio.com Enquiry");
+      formData.append("submission_time", currentDate);
+      
+      // Configuring FormSubmit options
+      formData.append("_template", "table"); // Nice table layout in email
+      formData.append("_captcha", "false"); // Disable captcha if needed
+      formData.append("_autoresponse", "Thank you for contacting Ciquerio Consulting Limited. We will respond to your enquiry shortly.");
+      
+      // Send the form data
+      const response = await fetch(formSubmitEndpoint, {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
       
       // Show success message and reset form
       setIsSuccess(true);
@@ -69,7 +94,7 @@ export default function ContactSection() {
         variant: "default",
       });
       
-      console.log("Contact form submitted:", data);
+      console.log("Contact form submitted successfully");
     } catch (error) {
       console.error("Error submitting contact form:", error);
       toast({
